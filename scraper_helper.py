@@ -11,6 +11,7 @@ def web_downloader_page():
 
     # Function to create a formatted filename from the URL
     def generate_filename(url):
+        save_dir = "./scraped_sites/"
         parsed_url = urllib.parse.urlparse(url)
         domain = parsed_url.netloc  # Get domain name
         domain = ".".join(domain.split(".")[:-1]) # Remove the top level domain
@@ -24,7 +25,7 @@ def web_downloader_page():
         else:
             filename = f"{domain}.html"
 
-        return filename
+        return save_dir + filename
 
     # Scrape and save website if URL is entered
     if url:
